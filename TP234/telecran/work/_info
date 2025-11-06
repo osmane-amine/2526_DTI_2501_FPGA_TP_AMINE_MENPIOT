@@ -1,0 +1,116 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Travail/ENSEA/2A/FPGA/TP/TP234/telecran
+Edetector
+Z1 w1762414469
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 31
+R0
+Z5 8detector.vhd
+Z6 Fdetector.vhd
+l0
+L5 1
+VLRkD4QLh[O9K0GbMkfHLd3
+!s100 QbbFRZ10Z[OCBMJLQb0Oo2
+Z7 OV;C;2020.1;71
+32
+Z8 !s110 1762414471
+!i10b 1
+Z9 !s108 1762414471.000000
+Z10 !s90 -reportprogress|300|detector.vhd|
+Z11 !s107 detector.vhd|
+!i113 1
+Z12 tExplicit 1 CvgOpt 0
+Aarchdetector
+R2
+R3
+R4
+Z13 DEx4 work 8 detector 0 22 LRkD4QLh[O9K0GbMkfHLd3
+!i122 31
+l23
+L17 70
+Vd`NBgNHi@^EO:^L]jh?=E3
+!s100 RLh7Mfk?O`E0k^foz8TWK0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+Edetector_tb
+Z14 w1762414209
+R2
+R3
+R4
+!i122 32
+R0
+Z15 8detector_tb.vhd
+Z16 Fdetector_tb.vhd
+l0
+L5 1
+Vb0l9Jzjni[io<>L`2Lm4V3
+!s100 Gm3T^lWaA`1:RKJCakK7n3
+R7
+32
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|detector_tb.vhd|
+Z18 !s107 detector_tb.vhd|
+!i113 1
+R12
+Aarchdetector_tb
+R13
+R2
+R3
+R4
+Z19 DEx4 work 11 detector_tb 0 22 b0l9Jzjni[io<>L`2Lm4V3
+!i122 32
+l17
+L8 74
+Vz64h64^gc?5N8;59G=>Dd3
+!s100 lNhVI6A65iXO3ZfZnJDbL2
+R7
+32
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+Eteled
+w1760609006
+R2
+R3
+R4
+!i122 26
+R0
+8teled.vhd
+Fteled.vhd
+l0
+L5 1
+Vj92lGg745ncBMzzDC6I`M0
+!s100 ROFDVTi=X0fX5DhIYB2al3
+R7
+32
+!s110 1760609060
+!i10b 1
+!s108 1760609060.000000
+!s90 -reportprogress|300|teled.vhd|
+!s107 teled.vhd|
+!i113 1
+R12
