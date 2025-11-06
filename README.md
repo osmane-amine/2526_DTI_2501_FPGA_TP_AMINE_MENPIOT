@@ -10,4 +10,10 @@ i_rst_n -> _n pour "not", en effet le reset a lieu lorsque l'input vaut '0'
 
 CONTRÔLEUR HDMI
 5.
-RVB donc le rouge est codé sur les bits 23 à 16, le vert sur les bits 15 à 8, le bleu sur les bits 7 à 0.
+
+RVB
+
+Le rouge est codé sur les bits 23 à 16, le vert sur les bits 15 à 8, le bleu sur les bits 7 à 0.
+
+Le rouge dépend de la variable x, le vert de la variable y et le bleu reste à 0.
+
