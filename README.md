@@ -9,11 +9,21 @@ RTL_led_blink_corrige = schéma de Quartus pour led_blink corrigé
 i_rst_n -> _n pour "not", en effet le reset a lieu lorsque l'input vaut '0'
 
 CONTRÔLEUR HDMI
-5.
+5. A quels bits correspondent chaque couleur ?
 
 RVB
 
 Le rouge dépend de la variable x, le vert de la variable y et le bleu reste à 0.
 
 Le rouge est donc codé sur les bits 23 à 16, le vert sur les bits 15 à 8, le bleu sur les bits 7 à 0.
+
+MÉMOIRISATION
+1.
+
+Une mémoire dual-port est une mémoire qui permet d'accéder à un emplacement mémoire via deux ports différents.
+
+On peut par exemple réaliser une opération d'écriture et une de lecture au même emplacement, sous réserve de synchronisation.
+
+
+
 
