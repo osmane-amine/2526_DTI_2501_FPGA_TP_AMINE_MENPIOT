@@ -38,6 +38,12 @@ entity telecran is
 end entity telecran;
 
 architecture rtl of telecran is
+
+	constant h_res : natural := 720;
+    constant v_res : natural := 480;
+	constant mem_size : natural := h_res * v_res;
+	constant data_width : natural := 8;
+
 	component I2C_HDMI_Config 
 		port (
 			iCLK : in std_logic;
@@ -85,8 +91,25 @@ architecture rtl of telecran is
 		);
 	end component detector;
 
-    constant h_res : natural := 720;
-    constant v_res : natural := 480;
+	component dpram
+		generic (
+			mem_size    : natural := 720 * 480;
+			data_width  : natural := 8
+		);
+		port (
+			i_clk_a     : in std_logic;
+			i_clk_b     : in std_logic;
+			i_data_a    : in std_logic_vector(data_width-1 downto 0);
+			i_data_b    : in std_logic_vector(data_width-1 downto 0);
+			i_addr_a    : in natural range 0 to mem_size-1;
+			i_addr_b    : in natural range 0 to mem_size-1;
+			i_we_a      : in std_logic;
+			i_we_b      : in std_logic;
+			o_q_a       : out std_logic_vector(data_width-1 downto 0);
+			o_q_b       : out std_logic_vector(data_width-1 downto 0)
+		);
+	end component dpram;
+
 
 	signal s_clk_27 : std_logic;
 	signal s_rst_n : std_logic;	-- holds reset as long as pll is not locked
@@ -98,6 +121,9 @@ architecture rtl of telecran is
 
 	signal s_x_pos : natural range 0 to (h_res - 1);
 	signal s_y_pos : natural range 0 to (v_res - 1);
+
+	signal s_pixel_data : std_logic_vector(data_width-1 downto 0);
+
 begin
 --	o_leds <= (others => '0');
 --	o_de10_leds <= (others => '0');
@@ -151,10 +177,41 @@ begin
 			i_ch_b => i_right_ch_b,
 			o_count => s_x_pos
 		);
+
+	dpram0 : component dpram
+		generic map (
+			mem_size => h_res * v_res,
+			data_width => 8
+		);
+		port map (
+			i_clk_a => s_clk_27,
+			i_clk_b => s_clk_27,
+			i_data_a => (others => '1'),
+			i_data_b => (others => '0'),
+			i_addr_a => s_x_pos + s_y_pos * v_res,
+			i_addr_b => s_x_counter + s_y_counter * v_res,
+			i_we_a => '1',
+			i_we_b => '0',
+			o_q_a => open,
+			o_q_b => s_pixel_data 
+		);
 	
 	-- Connect pixel data
 	o_hdmi_tx_clk <= s_clk_27;
-	o_hdmi_tx_d(23 downto 0) <= (others => '1') when (s_x_counter = s_x_pos and s_y_counter = s_y_pos) else (others => '0');
+
+	-- CONTRÔLEUR HDMI
+--	o_hdmi_tx_d(23 downto 16) <= std_logic_vector(to_unsigned(s_x_counter, 8));
+--	o_hdmi_tx_d(15 downto 8) <= std_logic_vector(to_unsigned(s_y_counter, 8));
+--	o_hdmi_tx_d(7 downto 0) <= (others => '0');
+
+	-- DÉPLACEMENT D'UN PIXEL
+--	o_hdmi_tx_d(23 downto 0) <= (others => '1') when (s_x_counter = s_x_pos and s_y_counter = s_y_pos) else (others => '0');
+
+	-- MÉMORISATION
+	o_hdmi_tx_d(23 downto 16) <= s_pixel_data(7 downto 0);
+	o_hdmi_tx_d(15 downto 8) <= s_pixel_data(7 downto 0);
+	o_hdmi_tx_d(7 downto 0) <= s_pixel_data(7 downto 0);
+
 
 	-- Configures the ADV7513 for 480p
 	I2C_HDMI_Config0 : component I2C_HDMI_Config 
