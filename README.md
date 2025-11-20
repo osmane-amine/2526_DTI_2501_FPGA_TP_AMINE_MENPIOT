@@ -13,16 +13,16 @@ Pour les parties "Création d'un projet", "Création d'un fichier VHDL" et "Fich
 
 1) L'horloge nommée `FPGA_CLK1_50` est connectée sur la broche `V11`
 
-3) [image](Led_blink_maison.png)
+3) ![image](Led_blink_maison.png)
 
-4) [image](RTL_led_blink_corrige.jpg)
+4) ![image](RTL_led_blink_corrige.jpg)
 
 Pour faire clignoter la led en générant le signal o_led, on utilise une bascule D. Sa sortie bascule entre 0 et 1 en fonction de la fréquence d’horloge.
 Dans les grandes lignes, les schémas sont identiques. Cependant, on remarque la présence de SCLR, que nous n’avons pas pris en compte
 
-7) [image](Led_blink_corrige_maison.png)
+7) ![image](Led_blink_corrige_maison.png)
 
-8) [image](RTL_led_blink_corrige.jpg)
+8) ![image](RTL_led_blink_corrige.jpg)
 
 Le schéma fourni par Quartus est assez similaire au nôtre mais il contient un multiplexeur que nous n’avons pas pris en compte.
 
@@ -48,7 +48,7 @@ Le rouge dépend de la variable x, le vert de la variable y et le bleu reste à 
 
 Le rouge est donc codé sur les bits 23 à 16, le vert sur les bits 15 à 8, le bleu sur les bits 7 à 0.
 
-6) [image](Affichageecran.png)
+6) ![image](Affichageecran.png)
 
 ### Mémorisation
 
@@ -61,7 +61,7 @@ On peut par exemple réaliser une opération d'écriture et une de lecture au m�
 
 Pour mémoriser les pixels, on entre `"11111111"` à l’emplacement mémoire correspondant aux coordonnées x y, plutôt que d’afficher directement ce pixel en blanc 
 
-[image](schema_memoire.jpg)
+![image](schema_memoire.jpg)
 
 
 
