@@ -15,7 +15,7 @@ Pour les parties "Création d'un projet", "Création d'un fichier VHDL" et "Fich
 
 3) ![image](Led_blink_maison.png)
 
-4) ![image](RTL_led_blink_corrige.jpg)
+4) ![image](RTL_led_blink.jpg)
 
 Pour faire clignoter la led en générant le signal o_led, on utilise une bascule D. Sa sortie bascule entre 0 et 1 en fonction de la fréquence d’horloge.
 Dans les grandes lignes, les schémas sont identiques. Cependant, on remarque la présence de SCLR, que nous n’avons pas pris en compte
